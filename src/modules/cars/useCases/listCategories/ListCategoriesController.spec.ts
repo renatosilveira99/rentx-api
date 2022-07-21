@@ -18,7 +18,7 @@ describe('ListCategoriesController', () => {
 
     await connection.query(
       `INSERT INTO USERS(id, name, email, password, "isAdmin", created_at, driver_license)
-        VALUES('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'NOW()', 'XXXXXXX')
+        VALUES('${id}', 'admin', 'admin@rentx.com.br', '${password}', true, 'now()', 'XXXXXX')
       `
     );
   });
@@ -48,9 +48,7 @@ describe('ListCategoriesController', () => {
 
     const response = await request(app).get('/categories');
 
-    console.log(response);
-
     expect(response.status).toBe(200);
-    expect(response.body.lenght).toBe(1);
+    expect(response.body.length).toBe(1);
   });
 });
